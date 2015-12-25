@@ -1,0 +1,32 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'My albums';
+$this->headTitle($title);
+?>
+<h2><?php echo $this->escapeHtml($title); ?></h2>
+<div class="pull-right">
+    <a href="<?php echo $this->url('album', array('action' => 'add')); ?>" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Create Album</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php foreach ($this->albums as $album): ?>        
+            <tr>
+                <td><?php echo $album->getTitle(); ?></td>
+                <td><?php echo $album->getArtist(); ?></td>
+                <td>
+                    <a href="<?php echo $this->url('album', array('action' => 'edit', 'id' => $album->getId()));?>" class="btn btn-default">Edit</a>
+                    <a href="<?php echo $this->url('album', array('action' => 'delete', 'id' => $album->getId()));?>" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

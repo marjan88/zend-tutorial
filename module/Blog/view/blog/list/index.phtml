@@ -1,0 +1,11 @@
+
+<section>
+    <h1>List Index</h1>
+    <uL>
+        <?php foreach ($this->posts as $post): ?>
+
+        <li><a href="<?php echo $this->url('post/detail', array('id' => $post->id)) ?>"><?php echo $post->title; ?></a></li>
+            
+        <?php endforeach; ?>
+    </ul>    
+</section>
